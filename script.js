@@ -6,12 +6,14 @@ const square3 = document.getElementById("square3");
 const centerText = document.getElementById("centerText");
 
 async function main() {
-  centerText.innerText = "Press space to start";
+  const time = 30;
+
+  centerText.innerText = `Press space to start.\nUse arrow keys to select the square that lights up.\nYou have ${time} seconds to get as many correct as possible.\nIf you get 3 wrong, the game is over.`;
 
   while (true) {
     await waitForSpace();
 
-    let score = await playGame(30);
+    let score = await playGame(time);
 
     centerText.innerText = `Game over!\nYour score was:\n${score}\nPress space to play again.`;
   }
