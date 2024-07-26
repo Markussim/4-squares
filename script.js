@@ -101,9 +101,13 @@ async function checkPress(squareToPress) {
     numberToSquare[key].style.backgroundColor = "";
     return true;
   } else {
+    const html = document.querySelector("html");
+
     numberToSquare[key].style.backgroundColor = "red";
+    html.style.filter = "contrast(500%)";
     await keyRelease();
     numberToSquare[key].style.backgroundColor = "";
+    html.style.filter = "";
     return false;
   }
 }
